@@ -10,3 +10,18 @@ A website where users go to get personalized news feeds. They can choose categor
 
 https://newsapi.org/
 rails: user, and news articles pushed in from newsapi
+
+# MVP
+
+-rails
+-react
+-modals
+-react router
+
+# Stretch
+
+-email capability
+
+# Wireframe
+
+![wireframe]('./wireframe.jpg.png')
