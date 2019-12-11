@@ -24,4 +24,4 @@ rails: user, and news articles pushed in from newsapi
 
 # Wireframe
 
-![wireframe]('./wireframe.jpg.png')
+![wireframe](./wireframe.jpg.png)
