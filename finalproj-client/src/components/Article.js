@@ -7,7 +7,24 @@ class Article extends Component {
     super();
   }
 
+  componentDidMount() {
+    console.log(this.props.articles);
+  }
   render() {
-    return <div>individual article</div>;
+    return (
+      <div>
+        articles:
+        {this.props.articles.map(article => {
+          return (
+            <div>
+              <p>{article.title}</p>
+              <img src={article.urlToImage}></img>{" "}
+            </div>
+          );
+        })}
+      </div>
+    );
   }
 }
+
+export default Article;

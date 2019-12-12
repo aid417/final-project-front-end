@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 
 import axios from "axios";
+import Article from "./Article.js";
 
 class NewsFeed extends Component {
   constructor() {
     super();
-
+    this.state = {
+      articles: []
+    };
     this.getArticles = this.getArticles.bind(this);
   }
   componentDidMount() {
@@ -17,10 +20,17 @@ class NewsFeed extends Component {
     const response = await axios.get(
       "https://newsapi.org/v2/top-headlines?country=us&apiKey=92c19aec34bd461db5c18ce60b4a9433 "
     );
-    console.log(response);
+    this.setState({
+      articles: response.data.articles
+    });
+    console.log(response.data.articles);
   }
   render() {
-    return <div>Articles:</div>;
+    return (
+      <div>
+        <Article articles={this.state.articles} />
+      </div>
+    );
   }
 }
 
