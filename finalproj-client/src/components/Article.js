@@ -14,9 +14,9 @@ class Article extends Component {
     return (
       <div>
         articles:
-        {this.props.articles.map(article => {
+        {this.props.articles.map((article, index) => {
           return (
-            <div>
+            <div key={index}>
               <p>{article.title}</p>
               <img src={article.urlToImage}></img>{" "}
             </div>
