@@ -4,15 +4,15 @@ import axios from "axios";
 import Article from "./Article.js";
 import PersonalArticles from "./PersonalArticles.js";
 class NewsFeed extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       articles: []
     };
     this.getArticles = this.getArticles.bind(this);
   }
   componentDidMount() {
-    console.log("component mounted");
+    console.log("news feed" + this.props.userMerges);
     this.getArticles();
   }
 
@@ -29,7 +29,7 @@ class NewsFeed extends Component {
     return (
       <div>
         {this.props.loggedIn ? (
-          <PersonalArticles />
+          <PersonalArticles merges={this.props.userMerges} />
         ) : (
           <Article articles={this.state.articles} />
         )}

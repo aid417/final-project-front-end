@@ -9,11 +9,12 @@ import Login from "./components/Login.js";
 import Logout from "./components/Logout.js";
 import DeleteCategory from "./components/DeleteCategory.js";
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       loggedIn: false,
-      merges: []
+      merges: [],
+      apiLoaded: false
     };
     this.handleLoggedIn = this.handleLoggedIn.bind(this);
     this.getPersonalArticles = this.getPersonalArticles.bind(this);
@@ -29,10 +30,17 @@ class App extends Component {
     this.setState({ loggedIn: true });
     const user = localStorage.getItem("currentuser");
     const response = await axios.get(`http://localhost:3000/users/${user}`);
-    this.setState({
-      merges: response.data.merges
+    let usermerges = [];
+    response.data.merges.map(merge => {
+      usermerges.push(merge.category_id);
+      return merge.category_id;
     });
-    console.log(this.state.merges);
+    console.log(usermerges);
+    await this.setState({
+      merges: usermerges,
+      apiLoaded: true
+    });
+    console.log("state merges set " + this.state.merges);
   }
   handleLoggedIn() {
     this.setState({
@@ -47,9 +55,14 @@ class App extends Component {
         <Login handleLogin={this.handleLoggedIn} />
         {this.state.loggedIn && <Logout handleLogout={this.handleLoggedIn} />}
         {this.state.loggedIn && <Categories />}
-        {this.state.loggedIn && <DeleteCategory merges={this.state.merges} />}
+        {/* {this.state.loggedIn && <DeleteCategory merges={this.state.merges} />} */}
         <h2>Today's Top Stories</h2>
-        <NewsFeed loggedIn={this.state.loggedIn} />
+        {this.state.apiLoaded && (
+          <NewsFeed
+            loggedIn={this.state.loggedIn}
+            userMerges={this.state.merges}
+          />
+        )}
       </div>
     );
   }
