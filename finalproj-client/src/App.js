@@ -33,8 +33,8 @@ class App extends Component {
         <h1>News Site</h1>
         <NewUser />
         <Login handleLogin={this.handleLoggedIn} />
-        <Logout handleLogout={this.handleLoggedIn} />
-        <Categories />
+        {this.state.loggedIn && <Logout handleLogout={this.handleLoggedIn} />}
+        {this.state.loggedIn && <Categories />}
         <h2>Today's Top Stories</h2>
         <NewsFeed loggedIn={this.state.loggedIn} />
       </div>
