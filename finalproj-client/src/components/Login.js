@@ -2,30 +2,37 @@ import React, { Component } from "react";
 
 import axios from "axios";
 
-class NewUser extends Component {
+class Login extends Component {
   constructor() {
     super();
     this.state = {
-      name: "",
       username: "",
-      email: "",
       password: ""
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   async handleSubmit(event) {
     event.preventDefault();
     const formData = {
-      user: {
-        name: this.state.name,
-        username: this.state.username,
-        email: this.state.email,
-        password: this.state.password
-      }
+      //   user: {
+      //     id: 5,
+      //     password: this.state.password
+      //   }
+      username: this.state.username,
+      password: this.state.password
     };
-    const response = await axios.post("http://localhost:3000/users", formData);
-    console.log(response.data);
+    const response = await axios.post(
+      "http://localhost:3000/sessions",
+      formData
+    );
+    localStorage.setItem("currentuser", response.data.msg.id);
+    console.log(response.data.msg.id);
+    console.log(localStorage);
+    this.setState({
+      username: "",
+      password: ""
+    });
   }
   handleChange(event) {
     this.setState({
@@ -35,16 +42,7 @@ class NewUser extends Component {
   render() {
     return (
       <div>
-        <h1>New User</h1>
         <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            onChange={this.handleChange}
-            value={this.state.name}
-            placeholder="name"
-          />
           <input
             type="text"
             id="username"
@@ -55,25 +53,17 @@ class NewUser extends Component {
           />
           <input
             type="text"
-            id="email"
-            name="email"
-            onChange={this.handleChange}
-            value={this.state.email}
-            placeholder="email"
-          />
-          <input
-            type="text"
             id="password"
             name="password"
             onChange={this.handleChange}
             value={this.state.password}
             placeholder="password"
           />
-          <input type="submit" value="sign up" />
+          <input type="submit" value="login" />
         </form>
       </div>
     );
   }
 }
 
-export default NewUser;
+export default Login;
