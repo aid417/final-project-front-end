@@ -33,6 +33,7 @@ class Login extends Component {
       username: "",
       password: ""
     });
+    this.props.handleLogin();
   }
   handleChange(event) {
     this.setState({

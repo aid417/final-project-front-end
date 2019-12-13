@@ -13,14 +13,27 @@ class App extends Component {
     this.state = {
       loggedIn: false
     };
+    this.handleLoggedIn = this.handleLoggedIn.bind(this);
+  }
+  componentDidMount() {
+    const status = localStorage.length > 0;
+
+    {
+      status && this.setState({ loggedIn: true });
+    }
+  }
+  handleLoggedIn() {
+    this.setState({
+      loggedIn: !this.state.loggedIn
+    });
   }
   render() {
     return (
       <div>
         <h1>News Site</h1>
         <NewUser />
-        <Login />
-        <Logout />
+        <Login handleLogin={this.handleLoggedIn} />
+        <Logout handleLogout={this.handleLoggedIn} />
         <Categories />
         <h2>Today's Top Stories</h2>
         <NewsFeed loggedIn={this.state.loggedIn} />
