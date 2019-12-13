@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import axios from "axios";
 import Article from "./Article.js";
-
+import PersonalArticles from "./PersonalArticles.js";
 class NewsFeed extends Component {
   constructor() {
     super();
@@ -28,7 +28,11 @@ class NewsFeed extends Component {
   render() {
     return (
       <div>
-        <Article articles={this.state.articles} />
+        {this.props.loggedIn ? (
+          <PersonalArticles />
+        ) : (
+          <Article articles={this.state.articles} />
+        )}
       </div>
     );
   }

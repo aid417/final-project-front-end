@@ -4,17 +4,22 @@ import "./App.css";
 import axios from "axios";
 import NewUser from "./components/NewUser.js";
 import NewsFeed from "./components/NewsFeed.js";
-
+import Categories from "./components/Categories.js";
 class App extends Component {
   constructor() {
     super();
+    this.state = {
+      loggedIn: false
+    };
   }
   render() {
     return (
       <div>
         <h1>News Site</h1>
         <NewUser />
-        <NewsFeed />
+        <Categories />
+        <h2>Today's Top Stories</h2>
+        <NewsFeed loggedIn={this.state.loggedIn} />
       </div>
     );
   }
