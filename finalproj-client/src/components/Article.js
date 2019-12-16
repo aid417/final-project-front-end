@@ -25,7 +25,7 @@ class Article extends Component {
   render() {
     return (
       <div>
-        articles:
+        <h2>Today's Top Stories</h2>
         {this.state.articles.map((article, index) => {
           return (
             <div key={index}>
