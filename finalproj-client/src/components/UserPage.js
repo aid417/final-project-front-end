@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import axios from "axios";
+import Categories from "./Categories.js";
 
 class UserPage extends Component {
   constructor() {
@@ -28,6 +29,7 @@ class UserPage extends Component {
     return (
       <div>
         <button onClick={() => this.deleteUser()}>delete account</button>
+        <Categories />
       </div>
     );
   }

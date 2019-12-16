@@ -3,12 +3,15 @@ import "./App.css";
 import axios from "axios";
 import NewUser from "./components/NewUser.js";
 import NewsFeed from "./components/NewsFeed.js";
-import Categories from "./components/Categories.js";
+
 import Login from "./components/Login.js";
 import Logout from "./components/Logout.js";
 // import DeleteCategory from "./components/DeleteCategory.js";
 import UserPage from "./components/UserPage.js";
 import Article from "./components/Article.js";
+import SavedArticles from "./components/SavedArticles.js";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Redirect } from "react-router";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -61,24 +64,63 @@ class App extends Component {
   }
   render() {
     return (
-      <div>
-        <h1>News Site</h1>
-        <NewUser />
-        <Login handleLogin={this.handleLoggedIn} />
-        {this.state.loggedIn && <UserPage userid={this.state.userid} />}
-        {this.state.loggedIn && <Logout handleLogout={this.handleLogOut} />}
-        {this.state.loggedIn && <Categories />}
-        {/* {this.state.loggedIn && <DeleteCategory merges={this.state.merges} />} */}
-        <h2>Today's Top Stories</h2>
+      <Router>
+        <div>
+          <h1>News Site</h1>
+          <nav>
+            <Link to="/">Home</Link>
+            {!this.state.loggedIn ? (
+              <Link to="/login">Login</Link>
+            ) : (
+              <Redirect from="/login" to="/personalfeed" />
+            )}
+            <Link to="/newuser">Create Account</Link>
+            {this.state.apiLoaded && this.state.loggedIn && (
+              <Link to="/personalfeed">Your Feed</Link>
+            )}
+            {this.state.loggedIn && this.state.apiLoaded && (
+              <Link to="/savedarticles">Saved Articles</Link>
+            )}
 
-        {this.state.apiLoaded && (
-          <NewsFeed
-            loggedIn={this.state.loggedIn}
-            userMerges={this.state.merges}
+            {this.state.loggedIn ? (
+              <Link to="/user">Your Account</Link>
+            ) : (
+              <Redirect from="/user" to="/" />
+            )}
+          </nav>
+
+          {this.state.loggedIn && <Logout handleLogout={this.handleLogOut} />}
+
+          <Route path="/" exact component={Article} />
+          <Route
+            path="/login"
+            render={props => (
+              <Login {...props} handleLogin={this.handleLoggedIn} />
+            )}
           />
-        )}
-        {!this.state.loggedIn && <Article />}
-      </div>
+          <Route
+            path="/personalfeed"
+            render={props => (
+              <NewsFeed
+                {...props}
+                loggedIn={this.state.loggedIn}
+                userMerges={this.state.merges}
+              />
+            )}
+          />
+          <Route path="/newuser" component={NewUser} />
+          <Route
+            path="/savedarticles"
+            render={props => (
+              <SavedArticles {...props} userid={this.state.userid} />
+            )}
+          />
+          <Route
+            path="/user"
+            render={props => <UserPage {...props} userid={this.state.userid} />}
+          />
+        </div>
+      </Router>
     );
   }
 }
