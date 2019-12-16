@@ -9,6 +9,7 @@ class Sports extends Component {
       articles: []
     };
     this.getArticles = this.getArticles.bind(this);
+    this.saveArticle = this.saveArticle.bind(this);
   }
   componentDidMount() {
     this.getArticles();
@@ -20,6 +21,9 @@ class Sports extends Component {
     this.setState({
       articles: response.data.articles
     });
+  }
+  saveArticle(article) {
+    console.log(article);
   }
   render() {
     return (
@@ -38,6 +42,9 @@ class Sports extends Component {
               <a href={article.url} target="_blank">
                 link
               </a>
+              <button onClick={() => this.saveArticle(article)}>
+                save article
+              </button>
             </div>
           );
         })}

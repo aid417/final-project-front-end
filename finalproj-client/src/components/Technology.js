@@ -6,11 +6,17 @@ class Technology extends Component {
   constructor() {
     super();
     this.state = {
-      articles: []
+      articles: [],
+      userid: ""
     };
     this.getArticles = this.getArticles.bind(this);
+    this.saveArticle = this.saveArticle.bind(this);
   }
   componentDidMount() {
+    const user = localStorage.getItem("currentuser");
+    this.setState({
+      userid: user
+    });
     this.getArticles();
   }
   async getArticles() {
@@ -21,6 +27,22 @@ class Technology extends Component {
       articles: response.data.articles
     });
   }
+  async saveArticle(article) {
+    console.log(article);
+    const response = await axios.post(
+      `http://localhost:3000/users/${this.state.userid}/articles`,
+      {
+        title: article.title,
+        description: article.description,
+        url: article.url,
+        image: article.urlToImage,
+        author: article.author,
+        user_id: this.state.userid
+      }
+    );
+    console.log(response);
+  }
+
   render() {
     return (
       <div>
@@ -38,6 +60,9 @@ class Technology extends Component {
               <a href={article.url} target="_blank">
                 link
               </a>
+              <button onClick={() => this.saveArticle(article)}>
+                save article
+              </button>
             </div>
           );
         })}
