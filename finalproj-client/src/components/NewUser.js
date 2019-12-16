@@ -26,6 +26,12 @@ class NewUser extends Component {
     };
     const response = await axios.post("http://localhost:3000/users", formData);
     console.log(response.data);
+    this.setState({
+      name: "",
+      username: "",
+      email: "",
+      password: ""
+    });
   }
   handleChange(event) {
     this.setState({

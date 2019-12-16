@@ -1,37 +1,19 @@
 import React, { Component } from "react";
 
-import axios from "axios";
-import Article from "./Article.js";
 import PersonalArticles from "./PersonalArticles.js";
 class NewsFeed extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      articles: []
-    };
-    this.getArticles = this.getArticles.bind(this);
   }
   componentDidMount() {
-    console.log("news feed" + this.props.userMerges);
-    this.getArticles();
+    console.log("news feed");
   }
 
-  async getArticles() {
-    const response = await axios.get(
-      "https://newsapi.org/v2/top-headlines?country=us&apiKey=92c19aec34bd461db5c18ce60b4a9433 "
-    );
-    this.setState({
-      articles: response.data.articles
-    });
-    console.log(response.data.articles);
-  }
   render() {
     return (
       <div>
-        {this.props.loggedIn ? (
+        {this.props.loggedIn && (
           <PersonalArticles merges={this.props.userMerges} />
-        ) : (
-          <Article articles={this.state.articles} />
         )}
       </div>
     );

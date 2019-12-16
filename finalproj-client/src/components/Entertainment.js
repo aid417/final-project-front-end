@@ -20,12 +20,27 @@ class Entertainment extends Component {
     this.setState({
       articles: response.data.articles
     });
-    console.log(this.state.articles);
   }
   render() {
     return (
       <div>
         <h1>Entertainment</h1>
+        {this.state.articles.map((article, index) => {
+          return (
+            <div key={index}>
+              <p>{article.title}</p>
+              <img
+                src={article.urlToImage}
+                className="articleimage"
+                height="100"
+                width="150"
+              ></img>{" "}
+              <a href={article.url} target="_blank">
+                link
+              </a>
+            </div>
+          );
+        })}
       </div>
     );
   }
