@@ -31,12 +31,13 @@ class Article extends Component {
             <div key={index}>
               <p>{article.title}</p>
               <img
+                alt="not found"
                 src={article.urlToImage}
                 className="articleimage"
                 height="100"
                 width="150"
               ></img>{" "}
-              <a href={article.url} target="_blank">
+              <a href={article.url} target="_blank" rel="noopener noreferrer">
                 link
               </a>
             </div>

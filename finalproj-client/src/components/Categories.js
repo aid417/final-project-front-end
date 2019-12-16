@@ -3,10 +3,6 @@ import React, { Component } from "react";
 import axios from "axios";
 
 class Categories extends Component {
-  constructor() {
-    super();
-  }
-
   async addCategory(event) {
     event.preventDefault();
     const category = event.currentTarget.id;

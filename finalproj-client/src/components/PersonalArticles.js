@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import axios from "axios";
+// import axios from "axios";
 import Technology from "./Technology.js";
 import Sports from "./Sports.js";
 import Health from "./Health.js";
@@ -40,15 +40,17 @@ class PersonalArticles extends Component {
     let userCategories = [];
     this.state.merges.map(merge => {
       this.state.categorynames.filter((category, index) => {
-        if (merge == index + 1) {
+        if (merge === index + 1) {
           userCategories.push(category);
           this.setState({
             [category]: true
           });
+          return category;
         } else {
           return "not a match";
         }
       });
+      return merge;
     });
     this.setState({ usercategories: userCategories });
   }

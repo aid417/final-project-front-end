@@ -6,7 +6,7 @@ import NewsFeed from "./components/NewsFeed.js";
 import Categories from "./components/Categories.js";
 import Login from "./components/Login.js";
 import Logout from "./components/Logout.js";
-import DeleteCategory from "./components/DeleteCategory.js";
+// import DeleteCategory from "./components/DeleteCategory.js";
 import UserPage from "./components/UserPage.js";
 import Article from "./components/Article.js";
 class App extends Component {
@@ -20,13 +20,13 @@ class App extends Component {
     };
     this.handleLoggedIn = this.handleLoggedIn.bind(this);
     this.getPersonalArticles = this.getPersonalArticles.bind(this);
+    this.handleLogOut = this.handleLogOut.bind(this);
   }
   componentDidMount() {
+    console.log("component mounted");
     const status = localStorage.length > 0;
 
-    {
-      status && this.getPersonalArticles();
-    }
+    status && this.getPersonalArticles();
   }
   async getPersonalArticles() {
     this.setState({ loggedIn: true });
@@ -44,11 +44,19 @@ class App extends Component {
       apiLoaded: true,
       userid: user
     });
+    console.log(this.state.apiLoaded);
   }
   handleLoggedIn() {
     console.log("handle login hit");
     this.setState({
-      loggedIn: !this.state.loggedIn
+      loggedIn: true
+    });
+    this.getPersonalArticles();
+  }
+  handleLogOut() {
+    console.log("handle logout hit");
+    this.setState({
+      loggedIn: false
     });
   }
   render() {
@@ -58,7 +66,7 @@ class App extends Component {
         <NewUser />
         <Login handleLogin={this.handleLoggedIn} />
         {this.state.loggedIn && <UserPage userid={this.state.userid} />}
-        {this.state.loggedIn && <Logout handleLogout={this.handleLoggedIn} />}
+        {this.state.loggedIn && <Logout handleLogout={this.handleLogOut} />}
         {this.state.loggedIn && <Categories />}
         {/* {this.state.loggedIn && <DeleteCategory merges={this.state.merges} />} */}
         <h2>Today's Top Stories</h2>
@@ -69,7 +77,7 @@ class App extends Component {
             userMerges={this.state.merges}
           />
         )}
-        {this.state.apiLoaded && !this.state.loggedIn && <Article />}
+        {!this.state.loggedIn && <Article />}
       </div>
     );
   }

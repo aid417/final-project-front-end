@@ -2,9 +2,6 @@ import React, { Component } from "react";
 
 import PersonalArticles from "./PersonalArticles.js";
 class NewsFeed extends Component {
-  constructor(props) {
-    super(props);
-  }
   componentDidMount() {
     console.log("news feed");
   }

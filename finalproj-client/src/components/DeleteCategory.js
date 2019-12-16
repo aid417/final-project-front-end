@@ -33,7 +33,9 @@ class DeleteCategory extends Component {
                 </div>
               );
             }
+            return category;
           });
+          return merge;
         })}
       </div>
     );
