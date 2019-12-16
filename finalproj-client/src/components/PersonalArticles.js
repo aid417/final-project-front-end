@@ -54,6 +54,7 @@ class PersonalArticles extends Component {
       return merge;
     });
     this.setState({ usercategories: userCategories });
+    console.log(this.state.merges);
   }
 
   render() {

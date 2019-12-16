@@ -6,7 +6,6 @@ import NewsFeed from "./components/NewsFeed.js";
 
 import Login from "./components/Login.js";
 import Logout from "./components/Logout.js";
-// import DeleteCategory from "./components/DeleteCategory.js";
 import UserPage from "./components/UserPage.js";
 import Article from "./components/Article.js";
 import SavedArticles from "./components/SavedArticles.js";
@@ -69,19 +68,17 @@ class App extends Component {
           <h1>News Site</h1>
           <nav>
             <Link to="/">Home</Link>
-            {!this.state.loggedIn ? (
-              <Link to="/login">Login</Link>
-            ) : (
+            {!this.state.loggedIn && <Link to="/login">Login</Link>}
+            {this.state.loggedIn && this.state.apiLoaded && (
               <Redirect from="/login" to="/personalfeed" />
             )}
             <Link to="/newuser">Create Account</Link>
             {this.state.apiLoaded && this.state.loggedIn && (
               <Link to="/personalfeed">Your Feed</Link>
             )}
-            {this.state.loggedIn && this.state.apiLoaded && (
+            {this.state.loggedIn && (
               <Link to="/savedarticles">Saved Articles</Link>
             )}
-
             {this.state.loggedIn ? (
               <Link to="/user">Your Account</Link>
             ) : (
