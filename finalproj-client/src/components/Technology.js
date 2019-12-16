@@ -28,7 +28,6 @@ class Technology extends Component {
     });
   }
   async saveArticle(article) {
-    console.log(article);
     const response = await axios.post(
       `http://localhost:3000/users/${this.state.userid}/articles`,
       {

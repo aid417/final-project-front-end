@@ -22,8 +22,19 @@ class Health extends Component {
       articles: response.data.articles
     });
   }
-  saveArticle(article) {
-    console.log(article);
+  async saveArticle(article) {
+    const response = await axios.post(
+      `http://localhost:3000/users/${this.state.userid}/articles`,
+      {
+        title: article.title,
+        description: article.description,
+        url: article.url,
+        image: article.urlToImage,
+        author: article.author,
+        user_id: this.state.userid
+      }
+    );
+    console.log(response);
   }
   render() {
     return (
