@@ -17,6 +17,7 @@ class Logout extends Component {
 
     localStorage.clear();
     console.log(localStorage);
+    this.props.handleLogout();
   }
   render() {
     return (
