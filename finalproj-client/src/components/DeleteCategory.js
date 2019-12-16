@@ -5,7 +5,8 @@ class DeleteCategory extends Component {
   constructor() {
     super();
     this.state = {
-      categories: []
+      categories: [],
+      userid: null
     };
     this.getNames = this.getNames.bind(this);
   }

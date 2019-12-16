@@ -6,12 +6,17 @@ class Health extends Component {
   constructor() {
     super();
     this.state = {
-      articles: []
+      articles: [],
+      userid: null
     };
     this.getArticles = this.getArticles.bind(this);
     this.saveArticle = this.saveArticle.bind(this);
   }
   componentDidMount() {
+    const user = localStorage.getItem("currentuser");
+    this.setState({
+      userid: user
+    });
     this.getArticles();
   }
   async getArticles() {

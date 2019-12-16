@@ -1,57 +1,43 @@
 import React, { Component } from "react";
-
 import axios from "axios";
-
-class Sports extends Component {
+// import axios from "axios";
+class SavedArticles extends Component {
   constructor() {
     super();
     this.state = {
-      articles: [],
-      userid: null
+      articles: []
     };
     this.getArticles = this.getArticles.bind(this);
-    this.saveArticle = this.saveArticle.bind(this);
+    this.removeArticle = this.removeArticle.bind(this);
   }
   componentDidMount() {
-    const user = localStorage.getItem("currentuser");
-    this.setState({
-      userid: user
-    });
     this.getArticles();
   }
   async getArticles() {
     const response = await axios.get(
-      `https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=92c19aec34bd461db5c18ce60b4a9433 `
+      `http://localhost:3000/users/${this.props.userid}`
     );
+    console.log(response.data.articles);
     this.setState({
       articles: response.data.articles
     });
   }
-  async saveArticle(article) {
-    const response = await axios.post(
-      `http://localhost:3000/users/${this.state.userid}/articles`,
-      {
-        title: article.title,
-        description: article.description,
-        url: article.url,
-        image: article.urlToImage,
-        author: article.author,
-        user_id: this.state.userid
-      }
-    );
+  async removeArticle(id) {
+    const response = await axios.delete(`http://localhost:3000/articles/${id}`);
     console.log(response);
+    this.getArticles();
   }
   render() {
     return (
       <div>
-        <h1>Sports</h1>
+        <h1>Saved Articles</h1>
         {this.state.articles.map((article, index) => {
           return (
             <div key={index}>
               <p>{article.title}</p>
               <img
                 alt="not found"
-                src={article.urlToImage}
+                src={article.image}
                 className="articleimage"
                 height="100"
                 width="150"
@@ -59,8 +45,11 @@ class Sports extends Component {
               <a href={article.url} target="_blank" rel="noopener noreferrer">
                 link
               </a>
-              <button onClick={() => this.saveArticle(article)}>
-                save article
+              <button
+                id={article.id}
+                onClick={() => this.removeArticle(article.id)}
+              >
+                remove
               </button>
             </div>
           );
@@ -70,4 +59,4 @@ class Sports extends Component {
   }
 }
 
-export default Sports;
+export default SavedArticles;

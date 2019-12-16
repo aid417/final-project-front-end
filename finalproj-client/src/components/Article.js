@@ -10,14 +10,14 @@ class Article extends Component {
   }
 
   componentDidMount() {
-    console.log("article component mounted");
+    // console.log("article component mounted");
     this.getArticles();
   }
   async getArticles() {
     const response = await axios.get(
       "https://newsapi.org/v2/top-headlines?country=us&apiKey=92c19aec34bd461db5c18ce60b4a9433 "
     );
-    console.log(response);
+    // console.log(response);
     await this.setState({
       articles: response.data.articles
     });

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import PersonalArticles from "./PersonalArticles.js";
+
 class NewsFeed extends Component {
   componentDidMount() {
     console.log("news feed");

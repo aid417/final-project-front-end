@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 // import axios from "axios";
+
 import Technology from "./Technology.js";
 import Sports from "./Sports.js";
 import Health from "./Health.js";
@@ -59,6 +60,7 @@ class PersonalArticles extends Component {
     return (
       <div>
         <h2>personal articles page</h2>
+
         {this.state.technology && <Technology />}
         {this.state.entertainment && <Entertainment />}
         {this.state.business && <Business />}
