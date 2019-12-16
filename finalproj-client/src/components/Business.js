@@ -44,27 +44,37 @@ class Business extends Component {
   render() {
     return (
       <div>
-        <h1>Business</h1>
-        {this.state.articles.map((article, index) => {
-          return (
-            <div key={index}>
-              <p>{article.title}</p>
-              <img
-                alt="not found"
-                src={article.urlToImage}
-                className="articleimage"
-                height="100"
-                width="150"
-              ></img>{" "}
-              <a href={article.url} target="_blank" rel="noopener noreferrer">
-                link
-              </a>
-              <button onClick={() => this.saveArticle(article)}>
-                save article
-              </button>
-            </div>
-          );
-        })}
+        <h1 className="mx-auto head">Business</h1>
+        <div className="mx-auto article">
+          {this.state.articles.map((article, index) => {
+            return (
+              <div key={index} className="mx-auto articleLink">
+                <img
+                  alt="not found"
+                  src={article.urlToImage}
+                  className=" mx-auto articleimage"
+                  height="100"
+                  width="150"
+                ></img>{" "}
+                <p>{article.title}</p>
+                <a
+                  className="mx-auto "
+                  href={article.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  link
+                </a>
+                <button
+                  className=" mx-auto  button"
+                  onClick={() => this.saveArticle(article)}
+                >
+                  save article
+                </button>
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   }

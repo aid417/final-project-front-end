@@ -46,6 +46,7 @@ class SavedArticles extends Component {
                 link
               </a>
               <button
+                className="button"
                 id={article.id}
                 onClick={() => this.removeArticle(article.id)}
               >

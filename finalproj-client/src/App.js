@@ -11,6 +11,7 @@ import Article from "./components/Article.js";
 import SavedArticles from "./components/SavedArticles.js";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Redirect } from "react-router";
+import "bootstrap/dist/css/bootstrap.min.css";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -65,22 +66,36 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <h1>News Site</h1>
-          <nav>
-            <Link to="/">Home</Link>
-            {!this.state.loggedIn && <Link to="/login">Login</Link>}
+          <h1 className="mx-auto head">News Site</h1>
+          <nav className=" mx-auto navigation text-center ">
+            <Link className="navigation-link nav-item " to="/">
+              Home
+            </Link>
+            {!this.state.loggedIn && (
+              <Link className="navigation-link nav-item" to="/login">
+                Login
+              </Link>
+            )}
             {this.state.loggedIn && this.state.apiLoaded && (
               <Redirect from="/login" to="/personalfeed" />
             )}
-            <Link to="/newuser">Create Account</Link>
-            {this.state.apiLoaded && this.state.loggedIn && (
-              <Link to="/personalfeed">Your Feed</Link>
+            <Link className="navigation-link nav-item" to="/newuser">
+              Create Account
+            </Link>
+            {this.state.loggedIn && (
+              <Link className="navigation-link nav-item" to="/personalfeed">
+                Your Feed
+              </Link>
             )}
             {this.state.loggedIn && (
-              <Link to="/savedarticles">Saved Articles</Link>
+              <Link className="navigation-link nav-item" to="/savedarticles">
+                Saved Articles
+              </Link>
             )}
             {this.state.loggedIn ? (
-              <Link to="/user">Your Account</Link>
+              <Link className="navigation-link nav-item" to="/user">
+                Your Account
+              </Link>
             ) : (
               <Redirect from="/user" to="/" />
             )}

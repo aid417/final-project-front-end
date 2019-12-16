@@ -27,8 +27,8 @@ class Login extends Component {
       formData
     );
     localStorage.setItem("currentuser", response.data.msg.id);
-    console.log(response.data.msg.id);
-    console.log(localStorage);
+    // console.log(response.data.msg.id);
+    // console.log(localStorage);
     this.setState({
       username: "",
       password: ""
@@ -43,7 +43,7 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form className="mx-auto form" onSubmit={this.handleSubmit}>
           <input
             type="text"
             id="username"

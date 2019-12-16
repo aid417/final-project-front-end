@@ -26,23 +26,31 @@ class Article extends Component {
     return (
       <div>
         <h2>Today's Top Stories</h2>
-        {this.state.articles.map((article, index) => {
-          return (
-            <div key={index}>
-              <p>{article.title}</p>
-              <img
-                alt="not found"
-                src={article.urlToImage}
-                className="articleimage"
-                height="100"
-                width="150"
-              ></img>{" "}
-              <a href={article.url} target="_blank" rel="noopener noreferrer">
-                link
-              </a>
-            </div>
-          );
-        })}
+        <div className="mx-auto article">
+          {" "}
+          {this.state.articles.map((article, index) => {
+            return (
+              <div key={index} className="mx-auto articleLink">
+                <img
+                  alt="not found"
+                  src={article.urlToImage}
+                  className="mx-auto articleimage"
+                  height="100"
+                  width="150"
+                ></img>{" "}
+                <p>{article.title}</p>
+                <a
+                  className="mx-auto"
+                  href={article.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  link
+                </a>
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   }
