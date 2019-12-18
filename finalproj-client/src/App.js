@@ -66,7 +66,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <h1 className="mx-auto head">News Site</h1>
+          <h1 className="mx-auto head">News Your Way</h1>
           <nav className=" mx-auto navigation text-center ">
             <Link className="navigation-link nav-item " to="/">
               Home

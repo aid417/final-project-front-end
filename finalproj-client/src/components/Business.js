@@ -49,28 +49,33 @@ class Business extends Component {
           {this.state.articles.map((article, index) => {
             return (
               <div key={index} className="mx-auto articleLink">
-                <img
-                  alt="not found"
-                  src={article.urlToImage}
-                  className=" mx-auto articleimage"
-                  height="100"
-                  width="150"
-                ></img>{" "}
-                <p>{article.title}</p>
-                <a
-                  className="mx-auto "
-                  href={article.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  link
-                </a>
-                <button
-                  className=" mx-auto  button"
-                  onClick={() => this.saveArticle(article)}
-                >
-                  save article
-                </button>
+                <div className="mx-auto image">
+                  <img
+                    alt="not found"
+                    src={article.urlToImage}
+                    className="mx-auto articleimage"
+                    height="125"
+                    width="200"
+                  ></img>{" "}
+                  <a
+                    className="mx-auto"
+                    href={article.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <h3 className="mx-auto title ">{article.title}</h3>{" "}
+                  </a>
+                </div>
+
+                <div className="mx-auto emoji">
+                  {" "}
+                  <button
+                    className=" mx-auto button special"
+                    onClick={() => this.saveArticle(article)}
+                  >
+                    save article
+                  </button>
+                </div>
               </div>
             );
           })}

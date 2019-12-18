@@ -49,22 +49,22 @@ class Health extends Component {
           {this.state.articles.map((article, index) => {
             return (
               <div key={index} className="mx-auto articleLink">
-                <img
-                  alt="not found"
-                  src={article.urlToImage}
-                  className=" mx-auto articleimage"
-                  height="100"
-                  width="150"
-                ></img>{" "}
-                <p className="mx-auto">{article.title}</p>
                 <a
                   className="mx-auto"
                   href={article.url}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  link
+                  <img
+                    alt="not found"
+                    src={article.urlToImage}
+                    className="mx-auto articleimage"
+                    height="125"
+                    width="200"
+                  ></img>{" "}
                 </a>
+                <p className="mx-auto">{article.title}</p>
+
                 <button
                   className="mx-auto button"
                   onClick={() => this.saveArticle(article)}
