@@ -60,7 +60,7 @@ class PersonalArticles extends Component {
   render() {
     return (
       <div>
-        <h2>personal articles page</h2>
+        <h2 className="mx-auto personal">personal articles page</h2>
 
         {this.state.technology && <Technology />}
         {this.state.entertainment && <Entertainment />}

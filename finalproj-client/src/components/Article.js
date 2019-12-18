@@ -25,7 +25,7 @@ class Article extends Component {
   render() {
     return (
       <div>
-        <h2>Today's Top Stories</h2>
+        <h2 className="mx-auto personal">Today's Top Stories</h2>
         <div className="mx-auto article">
           {" "}
           {this.state.articles.map((article, index) => {

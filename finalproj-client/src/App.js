@@ -101,8 +101,6 @@ class App extends Component {
             )}
           </nav>
 
-          {this.state.loggedIn && <Logout handleLogout={this.handleLogOut} />}
-
           <Route path="/" exact component={Article} />
           <Route
             path="/login"
@@ -129,7 +127,13 @@ class App extends Component {
           />
           <Route
             path="/user"
-            render={props => <UserPage {...props} userid={this.state.userid} />}
+            render={props => (
+              <UserPage
+                {...props}
+                userid={this.state.userid}
+                handleLogOut={this.handleLogOut}
+              />
+            )}
           />
         </div>
       </Router>

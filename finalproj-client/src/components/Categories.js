@@ -17,22 +17,22 @@ class Categories extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.addCategory} id="1">
+        <button className="button" onClick={this.addCategory} id="1">
           Business
         </button>
-        <button onClick={this.addCategory} id="2">
+        <button className="button" onClick={this.addCategory} id="2">
           Entertainment
         </button>
-        <button onClick={this.addCategory} id="3">
+        <button className="button" onClick={this.addCategory} id="3">
           Sports
         </button>
-        <button onClick={this.addCategory} id="4">
+        <button className="button" onClick={this.addCategory} id="4">
           Health
         </button>
-        <button onClick={this.addCategory} id="5">
+        <button className="button" onClick={this.addCategory} id="5">
           Science
         </button>
-        <button onClick={this.addCategory} id="6">
+        <button className="button" onClick={this.addCategory} id="6">
           Technology
         </button>
       </div>

@@ -45,7 +45,7 @@ class Entertainment extends Component {
     return (
       <div>
         <h1 className="mx-auto head">Entertainment</h1>
-        <div className="max-auto article">
+        <div className="mx-auto article">
           {this.state.articles.map((article, index) => {
             return (
               <div key={index} className=" mx-auto articleLink">

@@ -162,3 +162,8 @@ table {
 .form {
   width: 500px;
 }
+.personal {
+  width: 500px;
+  border: 1px solid red;
+  text-align: center;
+}
