@@ -5,7 +5,8 @@ class DeleteCategory extends Component {
   constructor() {
     super();
     this.state = {
-      categories: []
+      categories: [],
+      userid: null
     };
     this.getNames = this.getNames.bind(this);
   }
@@ -33,7 +34,9 @@ class DeleteCategory extends Component {
                 </div>
               );
             }
+            return category;
           });
+          return merge;
         })}
       </div>
     );

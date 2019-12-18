@@ -1,33 +1,51 @@
 import React, { Component } from "react";
+
 import axios from "axios";
-class Article extends Component {
+
+class Sports extends Component {
   constructor() {
     super();
     this.state = {
-      articles: []
+      articles: [],
+      userid: null
     };
     this.getArticles = this.getArticles.bind(this);
+    this.saveArticle = this.saveArticle.bind(this);
   }
-
   componentDidMount() {
-    // console.log("article component mounted");
+    const user = localStorage.getItem("currentuser");
+    this.setState({
+      userid: user
+    });
     this.getArticles();
   }
   async getArticles() {
     const response = await axios.get(
-      "https://newsapi.org/v2/top-headlines?country=us&apiKey=92c19aec34bd461db5c18ce60b4a9433 "
+      `https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=92c19aec34bd461db5c18ce60b4a9433 `
     );
-    // console.log(response);
-    await this.setState({
+    this.setState({
       articles: response.data.articles
     });
+  }
+  async saveArticle(article) {
+    const response = await axios.post(
+      `http://localhost:3000/users/${this.state.userid}/articles`,
+      {
+        title: article.title,
+        description: article.description,
+        url: article.url,
+        image: article.urlToImage,
+        author: article.author,
+        user_id: this.state.userid
+      }
+    );
+    console.log(response);
   }
   render() {
     return (
       <div>
-        <h2>Today's Top Stories</h2>
+        <h1 className="mx-auto head">Sports</h1>
         <div className="mx-auto article">
-          {" "}
           {this.state.articles.map((article, index) => {
             return (
               <div key={index} className="mx-auto articleLink">
@@ -47,6 +65,12 @@ class Article extends Component {
                 >
                   link
                 </a>
+                <button
+                  className="mx-auto button"
+                  onClick={() => this.saveArticle(article)}
+                >
+                  save article
+                </button>
               </div>
             );
           })}
@@ -56,4 +80,4 @@ class Article extends Component {
   }
 }
 
-export default Article;
+export default Sports;
