@@ -49,28 +49,33 @@ class Science extends Component {
           {this.state.articles.map((article, index) => {
             return (
               <div key={index} className="mx-auto articleLink">
-                <a
-                  className="mx-auto"
-                  href={article.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <div className="mx-auto image">
                   <img
                     alt="not found"
                     src={article.urlToImage}
                     className="mx-auto articleimage"
                     height="125"
-                    width="200"
+                    width="198"
                   ></img>{" "}
-                </a>
-                <h3 className="mx-auto title ">{article.title}</h3>
+                  <a
+                    className="mx-auto titlelink"
+                    href={article.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <h3 className="mx-auto title ">{article.title}</h3>{" "}
+                  </a>
+                </div>
 
-                <button
-                  className="mx-auto button"
-                  onClick={() => this.saveArticle(article)}
-                >
-                  save article
-                </button>
+                <div className=" emoji">
+                  {" "}
+                  <button
+                    className=" special"
+                    onClick={() => this.saveArticle(article)}
+                  >
+                    <span className="heart">❤️</span>
+                  </button>
+                </div>
               </div>
             );
           })}

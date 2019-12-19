@@ -48,28 +48,34 @@ class Entertainment extends Component {
         <div className="mx-auto article">
           {this.state.articles.map((article, index) => {
             return (
-              <div key={index} className=" mx-auto articleLink">
-                <a
-                  className="mx-auto"
-                  href={article.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+              <div key={index} className="mx-auto articleLink">
+                <div className="mx-auto image">
                   <img
                     alt="not found"
                     src={article.urlToImage}
                     className="mx-auto articleimage"
                     height="125"
-                    width="200"
+                    width="198"
                   ></img>{" "}
-                </a>
-                <h3 className="mx-auto title ">{article.title}</h3>
-                <button
-                  className="mx-auto button"
-                  onClick={() => this.saveArticle(article)}
-                >
-                  save article
-                </button>
+                  <a
+                    className="mx-auto titlelink"
+                    href={article.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <h3 className="mx-auto title ">{article.title}</h3>{" "}
+                  </a>
+                </div>
+
+                <div className=" emoji">
+                  {" "}
+                  <button
+                    className=" special"
+                    onClick={() => this.saveArticle(article)}
+                  >
+                    <span className="heart">❤️</span>
+                  </button>
+                </div>
               </div>
             );
           })}

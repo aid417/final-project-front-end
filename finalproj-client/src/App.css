@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300&display=swap");
 html,
 body,
 div,
@@ -118,6 +119,11 @@ q:after {
   content: "";
   content: none;
 }
+body {
+  font-family: "IBM Plex Mono", monospace;
+  background: FDFFFC;
+  color: rgb(227, 0, 92);
+}
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -133,21 +139,22 @@ table {
   text-decoration: none;
 }
 .articleLink {
-  width: 300px;
+  width: 200px;
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
-  border: 1px solid red;
+  border: 1px solid black;
 }
 .navigation {
   width: 900px;
   display: flex;
   justify-content: space-between;
   font-size: 30px;
+  color: #2ec4b6;
 }
 .head {
-  width: 300px;
-
+  width: 400px;
+  font-size: 50px;
   text-align: center;
   margin-top: 50px;
   margin-bottom: 50px;
@@ -177,9 +184,10 @@ table {
 .emoji {
   /* height: 300px;
   width: 300px; */
-  border: 1px solid red;
+  /* border: 1px solid red; */
 
   position: absolute;
+
   z-index: 1;
 }
 .image {
@@ -198,3 +206,19 @@ table {
   border: 1px solid red;
   text-align: center;
 } */
+.titlelink:hover {
+  text-decoration: none;
+}
+.titlelink {
+  color: black;
+}
+
+.special {
+  /* border: 1px solid purple; */
+  background: none;
+  border: none;
+}
+.special:hover {
+  background: rgba(255, 255, 255, 0.5);
+  width: 30px;
+}

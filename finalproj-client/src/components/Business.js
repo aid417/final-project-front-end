@@ -55,10 +55,10 @@ class Business extends Component {
                     src={article.urlToImage}
                     className="mx-auto articleimage"
                     height="125"
-                    width="200"
+                    width="198"
                   ></img>{" "}
                   <a
-                    className="mx-auto"
+                    className="mx-auto titlelink"
                     href={article.url}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -67,13 +67,13 @@ class Business extends Component {
                   </a>
                 </div>
 
-                <div className="mx-auto emoji">
+                <div className=" emoji">
                   {" "}
                   <button
-                    className=" mx-auto button special"
+                    className=" special"
                     onClick={() => this.saveArticle(article)}
                   >
-                    save article
+                    <span className="heart">❤️</span>
                   </button>
                 </div>
               </div>
