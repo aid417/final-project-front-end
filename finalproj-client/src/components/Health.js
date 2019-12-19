@@ -73,7 +73,7 @@ class Health extends Component {
                     className=" special"
                     onClick={() => this.saveArticle(article)}
                   >
-                    <span className="heart">❤️</span>
+                    <span className="heart">&hearts;</span>
                   </button>
                 </div>
               </div>

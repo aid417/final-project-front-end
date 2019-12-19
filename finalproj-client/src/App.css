@@ -121,8 +121,7 @@ q:after {
 }
 body {
   font-family: "IBM Plex Mono", monospace;
-  background: FDFFFC;
-  color: rgb(227, 0, 92);
+  background: white;
 }
 table {
   border-collapse: collapse;
@@ -133,6 +132,7 @@ table {
   flex-direction: row;
   flex-wrap: wrap;
   width: 90%;
+
   /* border: 1px solid red; */
 }
 .navigation-link:hover {
@@ -143,14 +143,19 @@ table {
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
-  border: 1px solid black;
+  border: 1px solid #846075;
 }
 .navigation {
   width: 900px;
   display: flex;
   justify-content: space-between;
   font-size: 30px;
-  color: #2ec4b6;
+}
+.navigation-link {
+  color: #efc7c2;
+}
+.navigation-link:hover {
+  color: #694f5d;
 }
 .head {
   width: 400px;
@@ -158,6 +163,7 @@ table {
   text-align: center;
   margin-top: 50px;
   margin-bottom: 50px;
+  color: #68a691;
 }
 .button {
   border: 1px solid black;
@@ -212,13 +218,15 @@ table {
 .titlelink {
   color: black;
 }
+.heart {
+  color: rgba(241, 130, 141, 1);
+  font-size: 30px;
+}
 
 .special {
-  /* border: 1px solid purple; */
   background: none;
   border: none;
 }
-.special:hover {
-  background: rgba(255, 255, 255, 0.5);
-  width: 30px;
+.heart:hover {
+  color: white;
 }

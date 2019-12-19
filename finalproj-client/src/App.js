@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./App.css";
+
 import axios from "axios";
 import NewUser from "./components/NewUser.js";
 import NewsFeed from "./components/NewsFeed.js";
@@ -12,6 +12,7 @@ import SavedArticles from "./components/SavedArticles.js";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Redirect } from "react-router";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 class App extends Component {
   constructor(props) {
     super(props);
