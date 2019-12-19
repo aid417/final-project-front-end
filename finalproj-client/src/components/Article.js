@@ -3,6 +3,12 @@ import axios from "axios";
 import picture1 from "./business.png";
 import picture2 from "./health1.png.jpg";
 import picture3 from "./sports1.png.jpg";
+import picture4 from "./technology.jpg";
+import picture5 from "./entertainment.jpg";
+import picture6 from "./business2.jpg";
+import picture7 from "./health2.jpg";
+import picture8 from "./sports.jpg";
+import picture9 from "./science.jpg";
 class Article extends Component {
   constructor() {
     super();
@@ -104,7 +110,122 @@ class Article extends Component {
               </div>
             </div>
           </div>
-          <div className="rightdiv"></div>
+          <div className="rightdiv">
+            <div className="littlediv">
+              <div className="littleImage">
+                <img
+                  src={picture4}
+                  alt="technology"
+                  height="140"
+                  width="200"
+                ></img>
+              </div>
+              <div className="littlearticle">
+                <h3 className="business">TECHNOLOGY</h3>
+                {this.state.apiLoaded && (
+                  <a href={this.state.technology[0].url}>
+                    <p className="littletitle">
+                      {this.state.technology[0].title}
+                    </p>
+                  </a>
+                )}
+              </div>
+            </div>
+            <div className="littlediv">
+              <div className="littleImage">
+                <img
+                  src={picture5}
+                  alt="technology"
+                  height="140"
+                  width="200"
+                ></img>
+              </div>
+              <div className="littlearticle">
+                <h3 className="business">ENTERTAINMENT</h3>
+                {this.state.apiLoaded && (
+                  <a href={this.state.entertainment[0].url}>
+                    <p className="littletitle">
+                      {this.state.entertainment[0].title}
+                    </p>
+                  </a>
+                )}
+              </div>
+            </div>
+            <div className="littlediv">
+              <div className="littleImage">
+                <img
+                  src={picture6}
+                  alt="technology"
+                  height="140"
+                  width="200"
+                ></img>
+              </div>
+              <div className="littlearticle">
+                <h3 className="business">BUSINESS</h3>
+                {this.state.apiLoaded && (
+                  <a href={this.state.business[1].url}>
+                    <p className="littletitle">
+                      {this.state.business[1].title}
+                    </p>
+                  </a>
+                )}
+              </div>
+            </div>
+            <div className="littlediv">
+              <div className="littleImage">
+                <img
+                  src={picture7}
+                  alt="technology"
+                  height="140"
+                  width="200"
+                ></img>
+              </div>
+              <div className="littlearticle">
+                <h3 className="business">HEALTH</h3>
+                {this.state.apiLoaded && (
+                  <a href={this.state.health[1].url}>
+                    <p className="littletitle">{this.state.health[1].title}</p>
+                  </a>
+                )}
+              </div>
+            </div>
+            <div className="littlediv">
+              <div className="littleImage">
+                <img
+                  src={picture8}
+                  alt="technology"
+                  height="140"
+                  width="200"
+                ></img>
+              </div>
+              <div className="littlearticle">
+                <h3 className="business">SPORTS</h3>
+                {this.state.apiLoaded && (
+                  <a href={this.state.sports[1].url}>
+                    <p className="littletitle">{this.state.sports[1].title}</p>
+                  </a>
+                )}
+              </div>
+            </div>
+            <div className="littlediv">
+              <div className="littleImage">
+                <img
+                  src={picture9}
+                  alt="technology"
+                  height="140"
+                  width="200"
+                ></img>
+              </div>
+              <div className="littlearticle">
+                <h3 className="business">SCIENCE</h3>
+                {this.state.apiLoaded && (
+                  <a href={this.state.science[0].url}>
+                    <p className="littletitle">{this.state.science[1].title}</p>
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );
