@@ -41,7 +41,7 @@ class NewUser extends Component {
   render() {
     return (
       <div>
-        <h1>New User</h1>
+        <h1>register</h1>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 import axios from "axios";
 import Categories from "./Categories.js";
-import Logout from "./Logout.js";
 
 class UserPage extends Component {
   constructor() {
@@ -30,7 +29,6 @@ class UserPage extends Component {
   render() {
     return (
       <div>
-        <Logout handleLogOut={this.props.handleLogOut} />
         <button className="button" onClick={() => this.deleteUser()}>
           delete account
         </button>
