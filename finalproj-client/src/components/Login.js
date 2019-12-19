@@ -43,25 +43,29 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <form className="mx-auto form" onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            onChange={this.handleChange}
-            value={this.state.username}
-            placeholder="username"
-          />
-          <input
-            type="text"
-            id="password"
-            name="password"
-            onChange={this.handleChange}
-            value={this.state.password}
-            placeholder="password"
-          />
-          <input type="submit" value="login" />
-        </form>
+        <div className="login">
+          <form className="mx-auto form" onSubmit={this.handleSubmit}>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              onChange={this.handleChange}
+              value={this.state.username}
+              placeholder="username"
+              className="input"
+            />
+            <input
+              type="text"
+              id="password"
+              name="password"
+              onChange={this.handleChange}
+              value={this.state.password}
+              placeholder="password"
+              className="input"
+            />
+            <input type="submit" className="loginbutton" value="login" />
+          </form>
+        </div>
       </div>
     );
   }

@@ -110,33 +110,44 @@ class App extends Component {
                 </Link>
               </nav>
             </div>
-            <nav className=" mx-auto navigation text-center ">
-              <Link className="navigation-link nav-item " to="/">
-                Home
-              </Link>
+            {this.state.loggedIn && (
+              <div className="navdiv">
+                <nav className=" mx-auto navigation text-center ">
+                  <Link className="navigation-link nav-item bottomlink " to="/">
+                    Home
+                  </Link>
 
-              {this.state.loggedIn && this.state.apiLoaded && (
-                <Redirect from="/login" to="/personalfeed" />
-              )}
+                  {this.state.apiLoaded && (
+                    <Redirect from="/login" to="/personalfeed" />
+                  )}
 
-              {this.state.loggedIn && (
-                <Link className="navigation-link nav-item" to="/personalfeed">
-                  Your Feed
-                </Link>
-              )}
-              {this.state.loggedIn && (
-                <Link className="navigation-link nav-item" to="/savedarticles">
-                  Saved Articles
-                </Link>
-              )}
-              {this.state.loggedIn ? (
-                <Link className="navigation-link nav-item" to="/user">
-                  Your Account
-                </Link>
-              ) : (
-                <Redirect from="/user" to="/" />
-              )}
-            </nav>
+                  <Link
+                    className="navigation-link nav-item bottomlink"
+                    to="/personalfeed"
+                  >
+                    Your Feed
+                  </Link>
+
+                  <Link
+                    className="navigation-link nav-item bottomlink"
+                    to="/savedarticles"
+                  >
+                    Saved Articles
+                  </Link>
+
+                  {this.state.loggedIn ? (
+                    <Link
+                      className="navigation-link nav-item bottomlink"
+                      to="/user"
+                    >
+                      Your Account
+                    </Link>
+                  ) : (
+                    <Redirect from="/user" to="/" />
+                  )}
+                </nav>
+              </div>
+            )}
           </div>
 
           <Route path="/" exact component={Article} />
