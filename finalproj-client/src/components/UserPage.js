@@ -24,12 +24,20 @@ class UserPage extends Component {
     );
     console.log(response);
     console.log("delete user clicked");
+    this.props.handleLogOut();
   }
   render() {
     return (
       <div>
-        <button onClick={() => this.deleteUser()}>delete account</button>
-        <Categories />
+        <div className="mx-auto userpage">
+          <button
+            className="button deleteuser"
+            onClick={() => this.deleteUser()}
+          >
+            delete account
+          </button>
+          <Categories />
+        </div>
       </div>
     );
   }

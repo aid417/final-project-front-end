@@ -1,17 +1,18 @@
 import React, { Component } from "react";
-import "./App.css";
+
 import axios from "axios";
 import NewUser from "./components/NewUser.js";
 import NewsFeed from "./components/NewsFeed.js";
 
 import Login from "./components/Login.js";
-import Logout from "./components/Logout.js";
+
 import UserPage from "./components/UserPage.js";
 import Article from "./components/Article.js";
 import SavedArticles from "./components/SavedArticles.js";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Redirect } from "react-router";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -24,6 +25,7 @@ class App extends Component {
     this.handleLoggedIn = this.handleLoggedIn.bind(this);
     this.getPersonalArticles = this.getPersonalArticles.bind(this);
     this.handleLogOut = this.handleLogOut.bind(this);
+    this.endSession = this.endSession.bind(this);
   }
   componentDidMount() {
     console.log("component mounted");
@@ -56,6 +58,15 @@ class App extends Component {
     });
     this.getPersonalArticles();
   }
+  async endSession() {
+    const id = localStorage.getItem("currentuser");
+    const response = await axios.delete(`http://localhost:3000/sessions/${id}`);
+    console.log(response);
+
+    localStorage.clear();
+    console.log(localStorage);
+    this.handleLogOut();
+  }
   handleLogOut() {
     console.log("handle logout hit");
     this.setState({
@@ -66,42 +77,83 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <h1 className="mx-auto head">News Site</h1>
-          <nav className=" mx-auto navigation text-center ">
-            <Link className="navigation-link nav-item " to="/">
-              Home
-            </Link>
-            {!this.state.loggedIn && (
-              <Link className="navigation-link nav-item" to="/login">
-                Login
-              </Link>
-            )}
-            {this.state.loggedIn && this.state.apiLoaded && (
-              <Redirect from="/login" to="/personalfeed" />
-            )}
-            <Link className="navigation-link nav-item" to="/newuser">
-              Create Account
-            </Link>
-            {this.state.loggedIn && (
-              <Link className="navigation-link nav-item" to="/personalfeed">
-                Your Feed
-              </Link>
-            )}
-            {this.state.loggedIn && (
-              <Link className="navigation-link nav-item" to="/savedarticles">
-                Saved Articles
-              </Link>
-            )}
-            {this.state.loggedIn ? (
-              <Link className="navigation-link nav-item" to="/user">
-                Your Account
-              </Link>
-            ) : (
-              <Redirect from="/user" to="/" />
-            )}
-          </nav>
+          <div>
+            {" "}
+            <div className="header">
+              <div className="head">
+                {" "}
+                <h1 className="mx-auto logo">
+                  {" "}
+                  <Link to="/" className="logolink">
+                    News Your Way
+                  </Link>
+                </h1>
+              </div>
 
-          {this.state.loggedIn && <Logout handleLogout={this.handleLogOut} />}
+              <nav className="topnav">
+                {" "}
+                {this.state.loggedIn ? (
+                  <button
+                    className="navigation-link nav-item toplink logout"
+                    onClick={this.endSession}
+                  >
+                    logout
+                  </button>
+                ) : (
+                  <Link
+                    className="navigation-link nav-item toplink"
+                    to="/login"
+                  >
+                    login
+                  </Link>
+                )}
+                <Link
+                  className="navigation-link nav-item toplink"
+                  to="/newuser"
+                >
+                  register
+                </Link>
+              </nav>
+            </div>
+            {this.state.loggedIn && (
+              <div className="navdiv">
+                <nav className=" mx-auto navigation text-center ">
+                  <Link className="navigation-link nav-item bottomlink " to="/">
+                    Home
+                  </Link>
+
+                  {this.state.apiLoaded && (
+                    <Redirect from="/login" to="/personalfeed" />
+                  )}
+
+                  <Link
+                    className="navigation-link nav-item bottomlink"
+                    to="/personalfeed"
+                  >
+                    Your Feed
+                  </Link>
+
+                  <Link
+                    className="navigation-link nav-item bottomlink"
+                    to="/savedarticles"
+                  >
+                    Saved Articles
+                  </Link>
+
+                  {this.state.loggedIn ? (
+                    <Link
+                      className="navigation-link nav-item bottomlink"
+                      to="/user"
+                    >
+                      Your Account
+                    </Link>
+                  ) : (
+                    <Redirect from="/user" to="/" />
+                  )}
+                </nav>
+              </div>
+            )}
+          </div>
 
           <Route path="/" exact component={Article} />
           <Route
@@ -110,6 +162,7 @@ class App extends Component {
               <Login {...props} handleLogin={this.handleLoggedIn} />
             )}
           />
+
           <Route
             path="/personalfeed"
             render={props => (
@@ -129,7 +182,13 @@ class App extends Component {
           />
           <Route
             path="/user"
-            render={props => <UserPage {...props} userid={this.state.userid} />}
+            render={props => (
+              <UserPage
+                {...props}
+                userid={this.state.userid}
+                handleLogOut={this.handleLogOut}
+              />
+            )}
           />
         </div>
       </Router>

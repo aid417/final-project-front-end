@@ -32,7 +32,7 @@ class Technology extends Component {
       `http://localhost:3000/users/${this.state.userid}/articles`,
       {
         title: article.title,
-        description: article.description,
+        description: "TECHNOLOGY",
         url: article.url,
         image: article.urlToImage,
         author: article.author,
@@ -45,33 +45,37 @@ class Technology extends Component {
   render() {
     return (
       <div>
-        <h1 className="mx-auto head">Technology</h1>
         <div className="mx-auto article">
           {this.state.articles.map((article, index) => {
             return (
               <div key={index} className="mx-auto articleLink">
-                <img
-                  alt="not found"
-                  src={article.urlToImage}
-                  className="mx-auto articleimage"
-                  height="100"
-                  width="150"
-                ></img>{" "}
-                <p>{article.title}</p>
-                <a
-                  className="mx-auto"
-                  href={article.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  link
-                </a>
-                <button
-                  className="mx-auto button"
-                  onClick={() => this.saveArticle(article)}
-                >
-                  save article
-                </button>
+                <div className="mx-auto image">
+                  <img
+                    alt="not found"
+                    src={article.urlToImage}
+                    className="mx-auto articleimage"
+                    height="125"
+                    width="198"
+                  ></img>{" "}
+                  <a
+                    className="mx-auto titlelink"
+                    href={article.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <h3 className="mx-auto personaltitle ">{article.title}</h3>{" "}
+                  </a>
+                </div>
+
+                <div className=" emoji">
+                  {" "}
+                  <button
+                    className=" special"
+                    onClick={() => this.saveArticle(article)}
+                  >
+                    <span className="heart">&hearts;</span>
+                  </button>
+                </div>
               </div>
             );
           })}
