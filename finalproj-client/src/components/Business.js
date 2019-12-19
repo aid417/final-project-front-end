@@ -32,7 +32,7 @@ class Business extends Component {
       `http://localhost:3000/users/${this.state.userid}/articles`,
       {
         title: article.title,
-        description: article.description,
+        description: "BUSINESS",
         url: article.url,
         image: article.urlToImage,
         author: article.author,

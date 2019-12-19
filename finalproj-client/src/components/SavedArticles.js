@@ -30,31 +30,43 @@ class SavedArticles extends Component {
   render() {
     return (
       <div>
-        <h1>Saved Articles</h1>
-        {this.state.articles.map((article, index) => {
-          return (
-            <div key={index}>
-              <p>{article.title}</p>
-              <img
-                alt="not found"
-                src={article.image}
-                className="articleimage"
-                height="100"
-                width="150"
-              ></img>{" "}
-              <a href={article.url} target="_blank" rel="noopener noreferrer">
-                link
-              </a>
-              <button
-                className="button"
-                id={article.id}
-                onClick={() => this.removeArticle(article.id)}
-              >
-                remove
-              </button>
-            </div>
-          );
-        })}
+        <div className="mx-auto article">
+          {this.state.articles.map((article, index) => {
+            return (
+              <div key={index} className="mx-auto articleLink">
+                <div className="mx-auto image">
+                  <img
+                    alt="not found"
+                    src={article.image}
+                    className="mx-auto articleimage"
+                    height="125"
+                    width="198"
+                  ></img>{" "}
+                  <h3 className="business">{article.description}</h3>
+                  <a
+                    className="mx-auto titlelink"
+                    href={article.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <h3 className="mx-auto personaltitle ">{article.title}</h3>{" "}
+                  </a>
+                </div>
+
+                <div className=" emoji">
+                  {" "}
+                  <button
+                    className=" special"
+                    id={article.id}
+                    onClick={() => this.removeArticle(article.id)}
+                  >
+                    <span className="heart">&hearts;</span>
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   }

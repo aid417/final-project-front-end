@@ -229,7 +229,7 @@ table {
   color: black;
 }
 .heart {
-  color: rgba(0, 0, 0, 0.6);
+  color: black;
   font-size: 30px;
 }
 
@@ -447,4 +447,44 @@ form {
 }
 .logolink:hover {
   color: black;
+}
+.category {
+  border: 1px solid rgb(240, 0, 46);
+  font-family: "Montserrat", sans-serif;
+  border-radius: 8px;
+}
+.category:hover {
+  background: rgb(240, 0, 46);
+  color: white;
+}
+
+.categoryheader {
+  font-family: "Montserrat", sans-serif;
+
+  width: 330px;
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+.userpage {
+  display: flex;
+  margin-top: 40px;
+  width: 80%;
+  justify-content: space-evenly;
+}
+.deleteuser {
+  border: 1px solid rgb(240, 0, 46);
+  font-family: "Montserrat", sans-serif;
+  border-radius: 8px;
+  height: 30px;
+  margin-top: 20px;
+}
+.deleteuser:hover {
+  background: rgb(240, 0, 46);
+  color: white;
+}
+.categorybutton {
+  display: flex;
+
+  width: 600px;
+  justify-content: space-evenly;
 }

@@ -29,10 +29,15 @@ class UserPage extends Component {
   render() {
     return (
       <div>
-        <button className="button" onClick={() => this.deleteUser()}>
-          delete account
-        </button>
-        <Categories />
+        <div className="mx-auto userpage">
+          <button
+            className="button deleteuser"
+            onClick={() => this.deleteUser()}
+          >
+            delete account
+          </button>
+          <Categories />
+        </div>
       </div>
     );
   }

@@ -17,24 +17,53 @@ class Categories extends Component {
   render() {
     return (
       <div>
-        <button className="button" onClick={this.addCategory} id="1">
-          Business
-        </button>
-        <button className="button" onClick={this.addCategory} id="2">
-          Entertainment
-        </button>
-        <button className="button" onClick={this.addCategory} id="3">
-          Sports
-        </button>
-        <button className="button" onClick={this.addCategory} id="4">
-          Health
-        </button>
-        <button className="button" onClick={this.addCategory} id="5">
-          Science
-        </button>
-        <button className="button" onClick={this.addCategory} id="6">
-          Technology
-        </button>
+        <div className="addcategory">
+          <h2 className="mx-auto categoryheader">Available Categories:</h2>
+          <div className="categorybutton">
+            <button
+              className="button category"
+              onClick={this.addCategory}
+              id="1"
+            >
+              Business
+            </button>
+            <button
+              className="button category"
+              onClick={this.addCategory}
+              id="2"
+            >
+              Entertainment
+            </button>
+            <button
+              className="button category"
+              onClick={this.addCategory}
+              id="3"
+            >
+              Sports
+            </button>
+            <button
+              className="button category"
+              onClick={this.addCategory}
+              id="4"
+            >
+              Health
+            </button>
+            <button
+              className="button category"
+              onClick={this.addCategory}
+              id="5"
+            >
+              Science
+            </button>
+            <button
+              className="button category"
+              onClick={this.addCategory}
+              id="6"
+            >
+              Technology
+            </button>
+          </div>
+        </div>
       </div>
     );
   }

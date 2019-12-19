@@ -32,7 +32,7 @@ class Entertainment extends Component {
       `http://localhost:3000/users/${this.state.userid}/articles`,
       {
         title: article.title,
-        description: article.description,
+        description: "ENTERTAINMENT",
         url: article.url,
         image: article.urlToImage,
         author: article.author,
