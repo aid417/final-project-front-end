@@ -82,7 +82,12 @@ class App extends Component {
             <div className="header">
               <div className="head">
                 {" "}
-                <h1 className="mx-auto logo">News Your Way</h1>
+                <h1 className="mx-auto logo">
+                  {" "}
+                  <Link to="/" className="logolink">
+                    News Your Way
+                  </Link>
+                </h1>
               </div>
 
               <nav className="topnav">

@@ -45,7 +45,6 @@ class Technology extends Component {
   render() {
     return (
       <div>
-        <h1 className="mx-auto head">Technology</h1>
         <div className="mx-auto article">
           {this.state.articles.map((article, index) => {
             return (
@@ -64,7 +63,7 @@ class Technology extends Component {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <h3 className="mx-auto title ">{article.title}</h3>{" "}
+                    <h3 className="mx-auto personaltitle ">{article.title}</h3>{" "}
                   </a>
                 </div>
 

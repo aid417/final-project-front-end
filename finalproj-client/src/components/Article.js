@@ -68,7 +68,11 @@ class Article extends Component {
               <h3 className="business">BUSINESS</h3>
               <div key="1">
                 {this.state.apiLoaded && (
-                  <a href={this.state.business[0].url}>
+                  <a
+                    href={this.state.business[0].url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <p className="title">{this.state.business[0].title}</p>
                   </a>
                 )}
@@ -94,7 +98,11 @@ class Article extends Component {
                 <img src={picture2} alt="health" height="175" width="275"></img>
                 <h3 className="business">HEALTH</h3>
                 {this.state.apiLoaded && (
-                  <a href={this.state.health[0].url}>
+                  <a
+                    href={this.state.health[0].url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <p className="mediumtitle">{this.state.health[0].title}</p>
                   </a>
                 )}
@@ -103,7 +111,11 @@ class Article extends Component {
                 <img src={picture3} alt="sports" height="175" width="275"></img>
                 <h3 className="business">SPORTS</h3>
                 {this.state.apiLoaded && (
-                  <a href={this.state.sports[0].url}>
+                  <a
+                    href={this.state.sports[0].url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <p className="mediumtitle">{this.state.sports[0].title}</p>
                   </a>
                 )}
@@ -123,7 +135,11 @@ class Article extends Component {
               <div className="littlearticle">
                 <h3 className="business">TECHNOLOGY</h3>
                 {this.state.apiLoaded && (
-                  <a href={this.state.technology[0].url}>
+                  <a
+                    href={this.state.technology[0].url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <p className="littletitle">
                       {this.state.technology[0].title}
                     </p>
@@ -143,7 +159,11 @@ class Article extends Component {
               <div className="littlearticle">
                 <h3 className="business">ENTERTAINMENT</h3>
                 {this.state.apiLoaded && (
-                  <a href={this.state.entertainment[0].url}>
+                  <a
+                    href={this.state.entertainment[0].url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <p className="littletitle">
                       {this.state.entertainment[0].title}
                     </p>
@@ -163,7 +183,11 @@ class Article extends Component {
               <div className="littlearticle">
                 <h3 className="business">BUSINESS</h3>
                 {this.state.apiLoaded && (
-                  <a href={this.state.business[1].url}>
+                  <a
+                    href={this.state.business[1].url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <p className="littletitle">
                       {this.state.business[1].title}
                     </p>
@@ -183,7 +207,11 @@ class Article extends Component {
               <div className="littlearticle">
                 <h3 className="business">HEALTH</h3>
                 {this.state.apiLoaded && (
-                  <a href={this.state.health[1].url}>
+                  <a
+                    href={this.state.health[1].url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <p className="littletitle">{this.state.health[1].title}</p>
                   </a>
                 )}
@@ -201,7 +229,11 @@ class Article extends Component {
               <div className="littlearticle">
                 <h3 className="business">SPORTS</h3>
                 {this.state.apiLoaded && (
-                  <a href={this.state.sports[1].url}>
+                  <a
+                    href={this.state.sports[1].url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <p className="littletitle">{this.state.sports[1].title}</p>
                   </a>
                 )}
@@ -219,7 +251,11 @@ class Article extends Component {
               <div className="littlearticle">
                 <h3 className="business">SCIENCE</h3>
                 {this.state.apiLoaded && (
-                  <a href={this.state.science[0].url}>
+                  <a
+                    href={this.state.science[0].url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <p className="littletitle">{this.state.science[1].title}</p>
                   </a>
                 )}

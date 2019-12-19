@@ -44,7 +44,6 @@ class Business extends Component {
   render() {
     return (
       <div>
-        <h1 className="mx-auto head">Business</h1>
         <div className="mx-auto article">
           {this.state.articles.map((article, index) => {
             return (
@@ -57,13 +56,14 @@ class Business extends Component {
                     height="125"
                     width="198"
                   ></img>{" "}
+                  <h3 className="business">BUSINESS</h3>
                   <a
                     className="mx-auto titlelink"
                     href={article.url}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <h3 className="mx-auto title ">{article.title}</h3>{" "}
+                    <h3 className="mx-auto personaltitle ">{article.title}</h3>{" "}
                   </a>
                 </div>
 
